@@ -18,4 +18,17 @@ Route::middleware([
     })->name('dashboard');
 });
 
+route::post('/addProduct', [HomeController::class, 'addProduct']);
+Route::get('/addProduct', function () {
+    return view('admin.addProduct');
+});
+
 route::get('/home', [HomeController::class, 'home']);
+
+route::get('/viewUsers', [HomeController::class, 'viewUsers']);  
+
+route::get('/viewProduct', [HomeController::class, 'viewProduct']);
+
+//route::get('/editProduct/{id}', [HomeController::class, 'viewProduct']);
+
+route::get('/deleteProduct/{id}', [HomeController::class, 'deleteProduct']);

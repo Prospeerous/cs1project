@@ -30,6 +30,15 @@
             </div>
 
             <div class="mt-4">
+                <x-label for="role" value="{{ __('Role') }}" />
+                <select id="role" name="role" required>
+                    <option value="buyer">Buyer</option>
+                    <option value="farmer">Farmer</option>
+                    <option value="admin">Administrator</option>
+                </select>
+            </div>
+
+            <div class="mt-4">
                 <x-label for="location" value="{{ __('location') }}" />
                 <x-input id="location" class="block mt-1 w-full" type="text" name="location" :value="old('location')" required />
             </div>
