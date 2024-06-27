@@ -15,12 +15,12 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('merchant_id')->constrained()->onDelete('cascade');
-            $table->string('name')->nullable();
-            $table->text('description')->nullable();
-            $table->decimal('price', 10, 2)->nullable();
-            $table->integer('stock')->nullable();
-            $table->string('category')->nullable();
+            $table->string('farmer_id')->nullable();
+            $table->string('product_name')->nullable();
+            $table->string('product_description')->nullable();
+            $table->string('product_quantity')->nullable();
+            $table->string('product_price')->nullable();
+            $table->string('product_category')->nullable();
             $table -> string('product_image')->nullable();
 
             $table->timestamps();

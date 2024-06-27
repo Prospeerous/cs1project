@@ -15,17 +15,39 @@
         
     }
     label {
-  display: inline-block;
-  width: 200px; 
-  text-align: left; 
-  margin-right: 10px; 
-}
+    display: inline-block;
+    width: 100px; 
+    text-align: left; 
+    margin-right: 10px;   
+    }
+    .submitButton{
+        background-color:green;
+        color: white; 
+        padding: 5px 10px; 
+        text-decoration: none; 
+    }
+    .imageLabel{
+        display: inline-block;
+        width: 100px; 
+        text-align: left; 
+    
+    }
+    .textInputs{
+        width: 200px;
+        padding: 5px;
+        margin: 5px;
+    }
+    .links{
+        font-style: italic;
+        text-decoration: none;
+        color: blue;
+    }
 </style>
 
 <h1 class = "tableHeading">Product Addition Page</h1>
 <p class = "tablepara">This is the page for farmers to add their products</p>
 
-<form class = "inputForm" action = "{{url('addProduct')}}" method = "POST">
+<form class = "inputForm" action = "{{url('addProduct')}}" method = "POST" enctype = "multipart/form-data">
     @csrf
     
     <label>Product Name:</label>
@@ -54,14 +76,14 @@
     </select>
     <br>
     <br>
-    <label>Product Image:</label>
-    <input class = "textInputs" type = "text" name = "product_image" required> </input>
+    <label class = "imageLabel">Product Image:</label>
+    <input class = "textInputs" type = "file" name = "product_image" required> </input>
     <br>
     <br>
-    <button type = "submit">Add Product</button>
+    <button class = "submitButton" type = "submit">Add Product</button>
     <br>
     <br>
-    <li><a href = "{{url('viewProduct')}}">View products</li>
+    <a class = "links" href = "{{url('viewProduct')}}">View products</a>
 </form>
     
 </x-app-layout>

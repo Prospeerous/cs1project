@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             
-            $table->foreignId('merchant_id')->constrained()->onDelete('cascade');
+            $table->foreignId('farmer_id')->constrained()->onDelete('cascade');
+            $table->foreignId('customer_id')->constrained()->onDelete('cascade');
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
             $table->integer('quantity');
-            $table->string('status')->default('pending'); // pending, processed, dispatched
+            $table->string('order_status')->default('pending'); // pending, processed, dispatched
             $table->timestamps();
         });
     }

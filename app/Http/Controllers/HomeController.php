@@ -46,17 +46,23 @@ class HomeController extends Controller
         $product -> product_quantity = $request -> product_quantity;
         $product -> product_price = $request -> product_price;
         $product -> product_category = $request -> product_category;
-        $product -> product_image = $request -> product_image;
+
+        $product_image = $request -> product_image;
+        $product_image_name = time().'.'.$product_image->getClientOriginalExtension();
+        $request -> product_image -> move('product_images', $product_image_name); 
+        $product -> product_image = $product_image_name;  
+
+
 
         $product->save();
-        return redirect() -> back();
+        return redirect() -> back() -> with('message', 'Product Added Successfully');
 
     }
 
     public function viewProduct()
     {
         $products = product::all();     
-            return view('admin.viewProduct', compact('products'));
+            return view('products.viewProduct', compact('products'));
     }
     
     public function deleteProduct($id)

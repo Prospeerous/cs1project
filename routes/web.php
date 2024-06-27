@@ -41,7 +41,7 @@ Route::middleware([
 
 route::post('/addProduct', [HomeController::class, 'addProduct']);
 Route::get('/addProduct', function () {
-    return view('admin.addProduct');
+    return view('products.addProduct');
 });
 
 route::get('/home', [HomeController::class, 'home']);
