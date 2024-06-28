@@ -35,7 +35,6 @@ class HomeController extends Controller
         
     }
 
-   
 
     public function addProduct(Request $request)
     {
@@ -59,10 +58,21 @@ class HomeController extends Controller
 
     }
 
+    public function adminViewProduct()
+    {
+        $products = product::all();     
+            return view('admin.adminViewProduct', compact('products'));
+    }
     public function viewProduct()
     {
         $products = product::all();     
             return view('products.viewProduct', compact('products'));
+
+    }
+
+    public function adminHome()
+    {
+        return view('admin.adminHome');
     }
     
     public function deleteProduct($id)

@@ -1,0 +1,18 @@
+.wholePage{
+    width : 100%;
+    height : 100%;
+    background-position: center;
+    background-image : url ("public\product_photos\admin background.jpeg");
+    background-size: cover;
+}
+
+.sideBar{
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    padding: 30px 15px;
+    background-color: aquamarine;
+    backdrop-filter: blur(5px);   
+}

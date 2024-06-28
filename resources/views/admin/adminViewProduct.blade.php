@@ -1,7 +1,6 @@
 <x-app-layout>
     <style type = "text/css"> 
         .tempUsersTable {
-            padding-left : 50%;
             width: 100%;
             border-collapse: collapse;
         }
@@ -21,6 +20,18 @@
         .tablepara{
             text-align: center;
             font-size: 16px;
+        }
+        .linkEditButton{
+            background-color: blue;
+            color: white; 
+            padding: 5px 10px; 
+            text-decoration: none; 
+        }
+        .linkDeleteButton{
+            background-color: red;
+            color: white; 
+            padding: 5px 10px; 
+            text-decoration: none; 
         }
         .sideBar{
             position: fixed;
@@ -81,61 +92,65 @@
             background-color: aquamarine;
             padding: 2px 2px;
         }
+        .tableImages{
+            width: 200px;
+            height: 100px;
+        }          
     </style>
 
 
-    
-
     <button class = "menuButton">≡</button>
-    
-    <h1 class = "tableHeading">User's table</h1>
+    <h1 class = "tableHeading">Products table</h1>
+    <p class = "tablepara">This is the table for all the products</p>
 
     <div class = "sideBar">
-            <button class = "exitMenuButton">X</button>
-            <div>
-                <p class = "para" > Admiminstrator Menu</p>
-            </div>
-            <div class = "sideContent">
-                <li><a href = "{{url('viewUsers')}}">View Users</li>
-            </div>
-            <div class = "sideContent">
-                <li><a href = "{{url('adminViewProduct')}}">View Products</li>
-            </div>
-            <div class = "sideContent">
-                <li><a href = "{{url('viewCustomers')}}">View Customers</li>
-            </div>
-            <div class = "sideContent">
-                <li><a href = "{{url('viewFarmers')}}">View Farmers</li>
-            </div>
-            <div class = "sideContent">
-                <li><a href = "{{url('viewAdmins')}}">View Admins</li>
-            </div>
-
+        <button class = "exitMenuButton">X</button>
+        <div>
+            <p class = "para" > Admiminstrator Menu</p>
         </div>
+        <div class = "sideContent">
+            <li><a href = "{{url('viewUsers')}}">View Users</li>
+        </div>
+        <div class = "sideContent">
+            <li><a href = "{{url('adminViewProduct')}}">View Products</li>
+        </div>
+        <div class = "sideContent">
+            <li><a href = "{{url('viewCustomers')}}">View Customers</li>
+        </div>
+        <div class = "sideContent">
+            <li><a href = "{{url('viewFarmers')}}">View Farmers</li>
+        </div>
+        <div class = "sideContent">
+            <li><a href = "{{url('viewAdmins')}}">View Admins</li>
+        </div>
+
+    </div>
 
     <table class = "tempUsersTable">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Phone Number</th>
-                <th>Location</th>
-                <th>Role</th>
+                <th>Product Name</th>
+                <th>Product Description</th>
+                <th>Product Quantity</th>
+                <th>Product Price</th>
+                <th>Product Category</th>
+                <th>Product Image</th>
             </tr>
         </thead>
         
         <tbody>
-        @foreach($users as $user)
+        @foreach($products as $product)
             <tr>
-                <td>{{$user->id}}</td>
-                <td>{{$user->f_name}}</td>
-                <td>{{$user->l_name}}</td>
-                <td>{{$user->email}}</td>
-                <td>{{$user->phone_no}}</td>
-                <td>{{$user->location}}</td> 
-                <td>{{$user->role}}</td>
+                <td>{{$product->id}}</td>
+                <td>{{$product->product_name}}</td>
+                <td>{{$product->product_description}}</td>
+                <td>{{$product->product_quantity}}</td>
+                <td>{{$product->product_price}}</td> 
+                <td>{{$product->product_category}}</td>  
+                <td>
+                    <img class = "tableImages" src = "/product_images/{{$product->product_image}}">
+                </td>
                               
             </tr>
         @endforeach   
@@ -151,7 +166,6 @@
             const table = document.querySelector('.tempUsersTable');
 
             menuButton.addEventListener('click', function () {
-                // Toggle the sidebar visibility
                 sideBar.style.display = (sideBar.style.display === 'none' || sideBar.style.display === '') ? 'block' : 'none';
                 table.style.marginLeft = '21%';
                 table.style.width = '79%';
@@ -159,12 +173,10 @@
             });
             const exitMenuButton = document.querySelector('.exitMenuButton');
             exitMenuButton.addEventListener('click', function () {
-                // Toggle the sidebar visibility
                 sideBar.style.display = (sideBar.style.display === 'none' || sideBar.style.display === '') ? 'block' : 'none';
                 table.style.marginLeft = '0%';
                 table.style.width = '100%';
             });
         });
     </script>
-    
 </x-app-layout>

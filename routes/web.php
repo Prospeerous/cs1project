@@ -44,7 +44,11 @@ Route::get('/addProduct', function () {
     return view('products.addProduct');
 });
 
+route::get('/adminViewProduct', [HomeController::class, 'adminViewProduct']);
+
 route::get('/home', [HomeController::class, 'home']);
+
+route::get('/adminHome', [HomeController::class, 'adminHome']);
 
 route::get('/viewUsers', [HomeController::class, 'viewUsers']);  
 
