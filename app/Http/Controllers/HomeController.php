@@ -69,6 +69,7 @@ class HomeController extends Controller
             return view('products.viewProduct', compact('products'));
 
     }
+   
 
     public function adminHome()
     {
@@ -80,5 +81,47 @@ class HomeController extends Controller
         $product = product::find($id);
         $product->delete();
         return redirect() -> back();
+    }
+
+    public function adminViewBuyers()
+    {
+        $users = User::where('role', 'buyer')->get();
+        return view('admin.adminViewBuyers', compact('users'));
+    }
+
+    public function adminViewFarmers()
+    {
+        $users = User::where('role', 'farmer')->get();
+        return view('admin.adminViewFarmers', compact('users'));
+    }
+
+    public function adminViewAdmins()
+    {
+        $users = User::where('role', 'admin')->get();
+        return view('admin.adminViewAdmins', compact('users'));
+    }
+
+    public function deleteUser($id){
+        $user = User::find($id);
+        $user->delete();
+        return redirect() -> back() -> with('message', 'User Deleted Successfully');
+    }
+
+    public function editUser($id){
+        $user = User::find($id);
+        return view('admin.adminEditUser', compact('user'));
+        return redirect() -> back();
+    }
+
+    public function updateUser(Request $request, $id){
+        $user = User::find($id);
+        $user -> f_name = $request -> f_name;
+        $user -> l_name = $request -> l_name;
+        $user -> email = $request -> email;
+        $user -> phone_no = $request -> phone_no;
+        $user -> role = $request -> role;
+        $user -> location = $request -> location;
+        $user -> update();
+        return redirect('viewUsers') -> with('message', 'User Updated Successfully');
     }
 }

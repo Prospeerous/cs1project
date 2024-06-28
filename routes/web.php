@@ -57,3 +57,17 @@ route::get('/viewProduct', [HomeController::class, 'viewProduct']);
 //route::get('/editProduct/{id}', [HomeController::class, 'viewProduct']);
 
 route::get('/deleteProduct/{id}', [HomeController::class, 'deleteProduct']);
+
+route::get('/adminViewBuyers', [HomeController::class, 'adminViewBuyers']);
+
+route::get('/adminViewFarmers', [HomeController::class, 'adminViewFarmers']);
+
+route::get('/adminViewAdmins', [HomeController::class, 'adminViewAdmins']);
+
+route::get('/deleteUser/{id}', [HomeController::class, 'deleteUser']);
+
+route::get('/editUser/{id}', [HomeController::class, 'editUser']);
+
+route::get('/updateUser/{id}', [HomeController::class, 'updateUser']);
+
+route::put('/updateUser/{id}', [HomeController::class, 'updateUser']);

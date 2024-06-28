@@ -69,19 +69,22 @@
                 <p class = "para" > Admiminstrator Menu</p>
             </div>
             <div class = "sideContent">
+                <li><a href = "{{url('adminHome')}}">Admin Home</li>
+            </div>
+            <div class = "sideContent">
                 <li><a href = "{{url('viewUsers')}}">View Users</li>
             </div>
             <div class = "sideContent">
                 <li><a href = "{{url('adminViewProduct')}}">View Products</li>
             </div>
             <div class = "sideContent">
-                <li><a href = "{{url('viewCustomers')}}">View Customers</li>
+                <li><a href = "{{url('adminViewBuyers')}}">View Buyers</li>
             </div>
             <div class = "sideContent">
-                <li><a href = "{{url('viewFarmers')}}">View Farmers</li>
+                <li><a href = "{{url('adminViewFarmers')}}">View Farmers</li>
             </div>
             <div class = "sideContent">
-                <li><a href = "{{url('viewAdmins')}}">View Admins</li>
+                <li><a href = "{{url('adminViewAdmins')}}">View Admins</li>
             </div>
         </div>
 

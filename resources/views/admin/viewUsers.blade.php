@@ -81,6 +81,18 @@
             background-color: aquamarine;
             padding: 2px 2px;
         }
+        .linkEditButton{
+            background-color: blue;
+            color: white; 
+            padding: 5px 10px; 
+            text-decoration: none; 
+        }
+        .linkDeleteButton{
+            background-color: red;
+            color: white; 
+            padding: 5px 10px; 
+            text-decoration: none; 
+        }
     </style>
 
 
@@ -96,19 +108,22 @@
                 <p class = "para" > Admiminstrator Menu</p>
             </div>
             <div class = "sideContent">
+                <li><a href = "{{url('adminHome')}}">Admin Home</li>
+            </div>
+            <div class = "sideContent">
                 <li><a href = "{{url('viewUsers')}}">View Users</li>
             </div>
             <div class = "sideContent">
                 <li><a href = "{{url('adminViewProduct')}}">View Products</li>
             </div>
             <div class = "sideContent">
-                <li><a href = "{{url('viewCustomers')}}">View Customers</li>
+                <li><a href = "{{url('adminViewBuyers')}}">View Buyers</li>
             </div>
             <div class = "sideContent">
-                <li><a href = "{{url('viewFarmers')}}">View Farmers</li>
+                <li><a href = "{{url('adminViewFarmers')}}">View Farmers</li>
             </div>
             <div class = "sideContent">
-                <li><a href = "{{url('viewAdmins')}}">View Admins</li>
+                <li><a href = "{{url('adminViewAdmins')}}">View Admins</li>
             </div>
 
         </div>
@@ -123,6 +138,8 @@
                 <th>Phone Number</th>
                 <th>Location</th>
                 <th>Role</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         
@@ -136,13 +153,15 @@
                 <td>{{$user->phone_no}}</td>
                 <td>{{$user->location}}</td> 
                 <td>{{$user->role}}</td>
+                <td><a class = "linkEditButton" href = "{{url('editUser', $user->id)}}">Edit</a></td>
+                <td><a class = "linkDeleteButton" href = "{{url('deleteUser', $user->id)}}">Delete</a></td>
                               
             </tr>
         @endforeach   
         </tbody>
     </table>
 
-    <a class = "homeLink" href = "{{url('adminHome')}}"> Admin home </a>
+    
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
