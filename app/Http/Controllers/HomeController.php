@@ -12,6 +12,10 @@ use App\Models\product;
 
 class HomeController extends Controller
 {
+    public function index()
+    {
+        return view('home.index');
+    }
     public function home()
     {
         $role = Auth::user()->role;

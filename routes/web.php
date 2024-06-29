@@ -25,9 +25,11 @@ Route::resource('return_requests', ReturnRequestController::class);
 Route::post('return_requests/{return_request}/approve', [ReturnRequestController::class, 'approveReturn'])->name('return_requests.approve');
 Route::post('return_requests/{return_request}/reject', [ReturnRequestController::class, 'rejectReturn'])->name('return_requests.reject');
 
-Route::get('/', function () {
-    return view('welcome');
+/*Route::get('/', function () {
+    return view('home.index');
 });
+*/
+Route::get('/', [HomeController::class, 'index']);
 
 Route::middleware([
     'auth:sanctum',
@@ -44,11 +46,7 @@ Route::get('/addProduct', function () {
     return view('products.addProduct');
 });
 
-route::get('/adminViewProduct', [HomeController::class, 'adminViewProduct']);
-
 route::get('/home', [HomeController::class, 'home']);
-
-route::get('/adminHome', [HomeController::class, 'adminHome']);
 
 route::get('/viewUsers', [HomeController::class, 'viewUsers']);  
 
@@ -57,17 +55,3 @@ route::get('/viewProduct', [HomeController::class, 'viewProduct']);
 //route::get('/editProduct/{id}', [HomeController::class, 'viewProduct']);
 
 route::get('/deleteProduct/{id}', [HomeController::class, 'deleteProduct']);
-
-route::get('/adminViewBuyers', [HomeController::class, 'adminViewBuyers']);
-
-route::get('/adminViewFarmers', [HomeController::class, 'adminViewFarmers']);
-
-route::get('/adminViewAdmins', [HomeController::class, 'adminViewAdmins']);
-
-route::get('/deleteUser/{id}', [HomeController::class, 'deleteUser']);
-
-route::get('/editUser/{id}', [HomeController::class, 'editUser']);
-
-route::get('/updateUser/{id}', [HomeController::class, 'updateUser']);
-
-route::put('/updateUser/{id}', [HomeController::class, 'updateUser']);
