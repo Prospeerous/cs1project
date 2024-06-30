@@ -160,7 +160,6 @@
         </tbody>
     </table>
 
-    <a class = "homeLink" href = "{{url('adminHome')}}"> Admin home </a>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
