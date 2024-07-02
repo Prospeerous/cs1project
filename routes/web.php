@@ -9,8 +9,19 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReturnRequestController;
 
+//farmerhome page routes
+Route::get('/farmer/notifications', function () {
+    return view('farmer.notifications');
+});
+
+Route::get('/farmer/settings', function () {
+    return view('farmer.settings');
+});
+
+
 // Merchant Routes
 Route::resource('merchants', MerchantController::class);
+
 
 // Product Routes
 Route::resource('products', ProductController::class);
@@ -41,11 +52,19 @@ Route::middleware([
     })->name('dashboard');
 });
 
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/products/add', [ProductController::class, 'create'])->name('products.add');
+    Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+});
+/*
 route::post('/addProduct', [HomeController::class, 'addProduct']);
 Route::get('/addProduct', function () {
     return view('products.addProduct');
 });
-
+Route::get('/viewProduct', function () {
+    return view('products.viewProduct');
+});
+*/
 route::get('/home', [HomeController::class, 'home']);
 
 route::get('/viewUsers', [HomeController::class, 'viewUsers']);  

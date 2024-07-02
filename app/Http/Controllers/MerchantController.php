@@ -24,7 +24,7 @@ class MerchantController extends Controller
         return view('merchants.show', compact('merchant'));
     }
 
-    public function dashboard()
+   /* public function dashboard()
     {
         $products = Product::where('user_id', auth()->id())->get();
         $orders = Order::where('user_id', auth()->id())->get();
@@ -36,6 +36,7 @@ class MerchantController extends Controller
 
         return view('farmerHome', compact('products', 'orders', 'salesChart'));
     }
+        */
 
     // Add methods for creating, storing, editing, and updating merchants.
 }
