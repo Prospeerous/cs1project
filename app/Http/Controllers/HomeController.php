@@ -10,6 +10,8 @@ use App\Models\User;
 
 use App\Models\product;
 
+use App\Models\cart;
+
 class HomeController extends Controller
 {
     public function index()
@@ -27,7 +29,7 @@ class HomeController extends Controller
             return view('farmer.farmerHome');
         }
         if ($role == "buyer"){
-            return view('dashboard');
+            return view('buyer.buyerHome');
         }
     }
 
@@ -38,8 +40,7 @@ class HomeController extends Controller
             return view('admin.viewUsers', compact('users'));
         
     }
-
-
+    
     public function addProduct(Request $request)
     {
         $product = new product;
@@ -67,6 +68,18 @@ class HomeController extends Controller
         $products = product::all();     
             return view('admin.adminViewProduct', compact('products'));
     }
+    public function showUserProduct(){
+
+        $products = product::all();
+            return view('buyer.showUserProduct', compact('products'));
+    }
+
+    public function selectOrderAmmount($id)
+    {
+        $products = product::find($id);
+            return view('buyer.selectOrderAmmount', compact('products'));
+    }
+
     public function viewProduct()
     {
         $products = product::all();     
@@ -127,5 +140,36 @@ class HomeController extends Controller
         $user -> location = $request -> location;
         $user -> update();
         return redirect('viewUsers') -> with('message', 'User Updated Successfully');
+    }
+
+    public function addToCart(Request $request, $id){
+      
+        $user = Auth::user();
+        $product = product::find($id);
+
+        $cart = new cart;
+
+        $cart -> user_id = $user -> id;
+
+        $cart -> product_id = $product -> id;
+        $cart -> product_name = $product -> product_name;
+        $cart -> product_price = $product -> product_price;
+        $cart -> product_image = $product -> product_image;
+
+        $cart -> f_name = $user -> f_name;
+        $cart -> l_name = $user -> l_name;
+        $cart -> email = $user -> email;
+        $cart -> phone_no = $user -> phone_no;
+        $cart -> location = $user -> location;
+
+        $cart -> order_quantity = $request -> order_quantity; 
+
+        $cart -> save();
+        return redirect() -> back() -> with('message', 'Product Added to Cart Successfully');
+
+    }
+
+    public function buyerHome(){
+        return view ('buyer.buyerHome');
     }
 }

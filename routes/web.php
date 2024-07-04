@@ -58,6 +58,12 @@ route::get('/deleteProduct/{id}', [HomeController::class, 'deleteProduct']);
 
 route::get('/editProduct/{id}', [HomeController::class, 'editProduct']);
 
+route::get('/editUser/{id}', [HomeController::class, 'editUser']);
+
+route::get('/updateUser/{id}', [HomeController::class, 'updateUser']);
+
+route::post('/updateUser/{id}', [HomeController::class, 'updateUser']);
+
 route::post('/updateProduct/{id}', [HomeController::class, 'updateProduct']);
 
 route::get('/adminViewProduct', [HomeController::class, 'adminViewProduct']);
@@ -70,3 +76,12 @@ route::get('adminViewAdmins', [HomeController::class, 'adminViewAdmins']);
 
 route::get('/adminHome', [HomeController::class, 'adminHome']);
 
+route::get('/showUserProduct', [HomeController::class, 'showUserProduct']);
+
+route::get('/selectOrderAmmount/{id}', [HomeController::class, 'selectOrderAmmount']);
+
+route::get('/addToCart/{id}', [HomeController::class, 'addToCart']);
+
+route::post('/addToCart/{id}', [HomeController::class, 'addToCart']);
+
+route::get('/buyerHome', [HomeController::class, 'buyerHome']);
