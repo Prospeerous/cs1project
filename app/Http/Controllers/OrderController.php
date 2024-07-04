@@ -3,11 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Merchant;
 use Illuminate\Http\Request;
 use App\Models\Order;
 
+
 class OrderController extends Controller
 {
+    public function showMerchantOrders()
+    {
+       // return view('orders.index', ['orders' => Merchant::with('products', 'orders')->find(auth()->id())]);
+      
+         return view('orders.index', ['orders' => Order::where('merchant_id', auth()->id())->get()]);
+        // return auth()->id();
+
+    }
     public function index()
     {
         $orders = Order::all();

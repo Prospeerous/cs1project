@@ -42,14 +42,14 @@
                <div class="row d_flex">
                   <div class=" col-md-2 col-sm-3">
                      <div class="logo">
-                        <a href="index.html">Equi<span>Farm</span></a>
+                        <a href="#">Equi<span>Farm</span></a>
                      </div>
                   </div>
                   <div class="col-md-8 col-sm-9">
                      <div class="navbar-area">
                         <nav class="site-navbar">
                            <ul>
-                              <li><a class="active" href="index.html">Home</a></li>
+                              <li><a class="active" href="#">Home</a></li>
                               <li><a href="about.html">About</a></li>
                               <li><a href="service.html">Service</a></li>
                              <li><a href="testimonail.html">Testimonials</a></li>
@@ -514,7 +514,7 @@
                            <div class="hedingh3 text_align_left">
                               <h3> Explore</h3>
                               <ul class="menu_footer">
-                                 <li><a href="index.html">Home</a></li>
+                                 <li><a href="#">Home</a></li>
                                  <li><a href="about.html">About</a></li>
                                  <li><a href="service.html">Service</a></li>
                                  <li><a href="Javascript:void(0)">Projects</a></li>

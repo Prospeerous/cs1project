@@ -160,7 +160,7 @@
 	        <div class="sidepanel-inner d-flex flex-column">
 		        <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
 		        <div class="app-branding">
-		            <a class="app-logo" href="index.html"><img class="logo-icon me-2" src="assets/images/app-logo.svg" alt="logo"><span class="logo-text">PORTAL</span></a>
+		            <a class="app-logo" href="#"><img class="logo-icon me-2" src="{{asset('/logo/logo.jpg')}}" alt="logo"><span class="logo-text">Equifarm</span></a>
 	
 		        </div><!--//app-branding-->  
 		        
@@ -168,7 +168,7 @@
 				    <ul class="app-menu list-unstyled accordion" id="menu-accordion">
 					    <li class="nav-item">
 					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-					        <a class="nav-link active" href="index.html">
+					        <a class="nav-link active" href="#">
 						        <span class="nav-icon">
 						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-door" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 		  <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z"/>
@@ -202,7 +202,7 @@
   <circle cx="3.5" cy="10.5" r=".5"/>
 </svg>
 						         </span>
-		                         <span class="nav-link-text">Orders</span>
+		                         <span class="nav-link-text">Messages</span>
 					        </a><!--//nav-link-->
 					    </li><!--//nav-item-->
 					    <li class="nav-item has-submenu">
@@ -226,7 +226,7 @@
 					        <div id="submenu-1" class="collapse submenu submenu-1" data-bs-parent="#menu-accordion">
 						        <ul class="submenu-list list-unstyled">
 							        <li class="submenu-item"><a class="submenu-link" href="{{url('/viewProduct' ) }}">View my products</a></li>
-							        <li class="submenu-item"><a class="submenu-link" href="{{url('/products/addProduct') }}">Add new product</a></li>
+							        <li class="submenu-item"><a class="submenu-link" href="{{url('/addProduct') }}">Add new product</a></li>
 									
 						        </ul>
 					        </div>
@@ -250,7 +250,7 @@
 					        </a><!--//nav-link-->
 					        <div id="submenu-1" class="collapse submenu submenu-1" data-bs-parent="#menu-accordion">
 						        <ul class="submenu-list list-unstyled">
-							        <li class="submenu-item"><a class="submenu-link" href="orders.html">View Orders</a></li>
+							        <li class="submenu-item"><a class="submenu-link" href="{{url('/orders')}}">View Orders</a></li>
 							        <li class="submenu-item"><a class="submenu-link" href="orders.html">Process orders</a></li>
 									<li class="submenu-item"><a class="submenu-link" href="orders.html">Return Requests</a></li>
 							        <li class="submenu-item"><a class="submenu-link" href="{{ url('/farmer/notifications') }}">Notifications</a></li>
@@ -630,78 +630,7 @@
 									    </div><!--//icon-holder-->
 						                
 							        </div><!--//col-->
-							        <div class="col-auto">
-								        <h4 class="app-card-title">Invoices</h4>
-							        </div><!--//col-->
-						        </div><!--//row-->
-						    </div><!--//app-card-header-->
-						    <div class="app-card-body px-4">
-							    
-							    <div class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquet eros vel diam semper mollis.</div>
-						    </div><!--//app-card-body-->
-						    <div class="app-card-footer p-4 mt-auto">
-							   <a class="btn app-btn-secondary" href="#">Create New</a>
-						    </div><!--//app-card-footer-->
-						</div><!--//app-card-->
-				    </div><!--//col-->
-				    <div class="col-12 col-lg-4">
-					    <div class="app-card app-card-basic d-flex flex-column align-items-start shadow-sm">
-						    <div class="app-card-header p-3 border-bottom-0">
-						        <div class="row align-items-center gx-3">
-							        <div class="col-auto">
-								        <div class="app-icon-holder">
-										    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-code-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-  <path fill-rule="evenodd" d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z"/>
-</svg>
-									    </div><!--//icon-holder-->
-						                
-							        </div><!--//col-->
-							        <div class="col-auto">
-								        <h4 class="app-card-title">Apps</h4>
-							        </div><!--//col-->
-						        </div><!--//row-->
-						    </div><!--//app-card-header-->
-						    <div class="app-card-body px-4">
-							    
-							    <div class="intro">Pellentesque varius, elit vel volutpat sollicitudin, lacus quam efficitur augue</div>
-						    </div><!--//app-card-body-->
-						    <div class="app-card-footer p-4 mt-auto">
-							   <a class="btn app-btn-secondary" href="#">Create New</a>
-						    </div><!--//app-card-footer-->
-						</div><!--//app-card-->
-				    </div><!--//col-->
-				    <div class="col-12 col-lg-4">
-					    <div class="app-card app-card-basic d-flex flex-column align-items-start shadow-sm">
-						    <div class="app-card-header p-3 border-bottom-0">
-						        <div class="row align-items-center gx-3">
-							        <div class="col-auto">
-								        <div class="app-icon-holder">
-										    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-tools" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M0 1l1-1 3.081 2.2a1 1 0 0 1 .419.815v.07a1 1 0 0 0 .293.708L10.5 9.5l.914-.305a1 1 0 0 1 1.023.242l3.356 3.356a1 1 0 0 1 0 1.414l-1.586 1.586a1 1 0 0 1-1.414 0l-3.356-3.356a1 1 0 0 1-.242-1.023L9.5 10.5 3.793 4.793a1 1 0 0 0-.707-.293h-.071a1 1 0 0 1-.814-.419L0 1zm11.354 9.646a.5.5 0 0 0-.708.708l3 3a.5.5 0 0 0 .708-.708l-3-3z"/>
-  <path fill-rule="evenodd" d="M15.898 2.223a3.003 3.003 0 0 1-3.679 3.674L5.878 12.15a3 3 0 1 1-2.027-2.027l6.252-6.341A3 3 0 0 1 13.778.1l-2.142 2.142L12 4l1.757.364 2.141-2.141zm-13.37 9.019L3.001 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026z"/>
-</svg>
-									    </div><!--//icon-holder-->
-						                
-							        </div><!--//col-->
-							        <div class="col-auto">
-								        <h4 class="app-card-title">Tools</h4>
-							        </div><!--//col-->
-						        </div><!--//row-->
-						    </div><!--//app-card-header-->
-						    <div class="app-card-body px-4">
-							    
-							    <div class="intro">Sed maximus, libero ac pharetra elementum, turpis nisi molestie neque, et tincidunt velit turpis non enim.</div>
-						    </div><!--//app-card-body-->
-						    <div class="app-card-footer p-4 mt-auto">
-							   <a class="btn app-btn-secondary" href="#">Create New</a>
-						    </div><!--//app-card-footer-->
-						</div><!--//app-card-->
-				    </div><!--//col-->
-			    </div><!--//row-->
-			    
-		    </div><!--//container-fluid-->
-	    </div><!--//app-content-->
+							     
 	    
 	    <footer class="app-footer">
 		    <div class="container text-center py-3">

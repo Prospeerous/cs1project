@@ -27,9 +27,13 @@ Route::resource('merchants', MerchantController::class);
 Route::resource('products', ProductController::class);
 
 // Order Routes
-Route::resource('orders', OrderController::class);
+//Route::resource('orders', OrderController::class);
 Route::post('orders/{order}/process', [OrderController::class, 'processOrder'])->name('orders.process');
 Route::post('orders/{order}/dispatch', [OrderController::class, 'dispatchOrder'])->name('orders.dispatch');
+
+Route::get('orders', [OrderController::class, 'showMerchantOrders' ]);
+Route::get('orders/{id}', [OrderController::class, 'show' ]);
+
 
 // Return Request Routes
 Route::resource('return_requests', ReturnRequestController::class);
@@ -71,8 +75,10 @@ route::get('/viewUsers', [HomeController::class, 'viewUsers']);
 
 route::get('/viewProduct', [HomeController::class, 'viewProduct']);
 //route::get('/addProduct', [HomeController::class, 'addProduct']);
-Route::get('/products/addProduct', [ProductController::class, 'create'])->name('products.add');
-Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+Route::get('/addProduct', [ProductController::class, 'create']);
+// Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+Route::post('/products', [ProductController::class, 'store']);
+
 
 //route::get('/editProduct/{id}', [HomeController::class, 'viewProduct']);
 

@@ -81,7 +81,7 @@ class ProductController extends Controller
         ]);
 
         $product = new Product();
-        $product->farmer_id = auth()->id();
+        $product->id = auth()->id();
         $product->product_name = $request->product_name;
         $product->product_description = $request->product_description;
         $product->product_quantity = $request->product_quantity;
