@@ -64,4 +64,36 @@ class ProductController extends Controller
     }
 
     // Add methods for creating, storing, editing, and updating products.
+    public function create()
+    {
+        return view('products.addProduct');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'product_name' => 'required|string|max:255',
+            'product_description' => 'required|string|max:1000',
+            'product_quantity' => 'required|integer',
+            'product_price' => 'required|numeric',
+            'product_category' => 'required|string|max:255',
+            'product_image' => 'nullable|image|max:2048',
+        ]);
+
+        $product = new Product();
+        $product->farmer_id = auth()->id();
+        $product->product_name = $request->product_name;
+        $product->product_description = $request->product_description;
+        $product->product_quantity = $request->product_quantity;
+        $product->product_price = $request->product_price;
+        $product->product_category = $request->product_category;
+
+        if ($request->hasFile('product_image')) {
+            $product->product_image = $request->file('product_image')->store('products', 'public');
+        }
+
+        $product->save();
+
+        return redirect()->route('products.addProduct')->with('success', 'Product added successfully!');
+    }
 }
