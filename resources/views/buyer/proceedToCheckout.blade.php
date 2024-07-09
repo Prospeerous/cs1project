@@ -1,3 +1,4 @@
+<x-app-layout>
     <style>
         .orderSelection {
             max-width: 400px; /* Adjust the maximum width as needed */
@@ -56,37 +57,36 @@
         .homeLink:hover {
             background-color: darkred;
         }
-        .heading{
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            
-            text-decoration: none;
+        .proceedLink {
+            background-color: limegreen;
+            padding: 8px 20px;
+            font-size: 14px;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            left: 30px;
+        }
+        .proceedLink:hover {
+            background-color: darkgreen;
         }
     </style>
 
-    @foreach($products as $product)   
+    @foreach($order as $order)   
     <div class="orderSelection">
-        <img src="\product_images\{{$products->product_image}}" alt="order item" class="orderImage">
+        <img src="\product_images\{{$order->product_image}}" alt="order item" class="orderImage">
         <br>
-        <h3>Product Name: {{ $products->product_name }}</h3>
+        <h3>Product Name: {{ $order->product_name }}</h3>
         <br>
-        <h3>Product Price: {{ $products->product_price }}</h3>
+        <h3>Product Price: {{ $order->product_price }}</h3>
         <br>
-        <form action= "{{ url('addToCart', $products->id) }}" method="post">
-            @csrf
-            <input type= "number" name ="ammount" id= "ammount" placeholder="Enter Quantity" min="1" required>
-            <br>
-            <input type = "number" name = "order_ammount" id = "order_ammount" placeholder = "Enter Quantity" min = "1" required>   
-
-            <a href = "{{ url('addToCart', $products->id) }}" type="submit">Order</a>
-            <br>
-        </form>
+        <h3>Product Ammount: {{ $order-> order_ammount }}</h3>
         <br>
-        <a class = "homeLink" href = "{{url('showUserProduct')}}">Cancel</a>
+        <h3>Product Total Price: {{ $order->total_price }}</h3>
+        <br>
     </div>
     @break
     @endforeach
 
-
+</x-app-layout>

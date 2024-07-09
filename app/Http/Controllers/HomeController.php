@@ -12,6 +12,8 @@ use App\Models\product;
 
 use App\Models\cart;
 
+use App\Models\order;
+
 class HomeController extends Controller
 {
     public function index()
@@ -162,14 +164,80 @@ class HomeController extends Controller
         $cart -> phone_no = $user -> phone_no;
         $cart -> location = $user -> location;
 
-        $cart -> order_quantity = $request -> order_quantity; 
+        $cart -> ammount = $request -> ammount; 
+
+        $cart -> order_ammount = $request -> order_ammount;
+
 
         $cart -> save();
-        return redirect() -> back() -> with('message', 'Product Added to Cart Successfully');
+        return redirect('showBuyerCart') -> with('message', 'Product Added to Cart Successfully');
 
     }
 
     public function buyerHome(){
         return view ('buyer.buyerHome');
+    }
+
+    public function showBuyerCart(){
+        $user = Auth::user();
+
+        $carts = cart::where('user_id', $user -> id)->get();
+        return view('buyer.showBuyerCart', compact('carts'));
+    }
+
+    public function deleteCart($id){
+        $user_id = Auth::user()->id;
+    
+    // Find the cart item by its own unique id and ensure it belongs to the authenticated user
+    $cart = Cart::where('id', $id)
+                ->where('user_id', $user_id)
+                ->first();
+
+    if (!$cart) {
+        abort(404); // Handle case where cart item with $id does not exist or does not belong to the user
+    }
+
+    $cart->delete();
+
+    return redirect('showUserProduct')->with('message', 'Product Deleted from Cart Successfully');
+    }
+    public function showUserPendingOrders(){
+        $user = Auth::user();
+        $orders = order::where('user_id', $user -> id)->get();
+        return view('buyer.showUserPendingOrders', compact('orders'));
+    }
+    public function proceedToCheckout(){
+        $user = Auth::user();
+        
+        $userId = $user -> id;
+        $userInfo = user::all()->where('id', $userId);
+
+        
+        $cart = cart::all();
+        //$id = cart::where('id', $cart -> id);
+        $cartData = cart::where('user_id', '=' , $userId)->get();
+        //dd($cartData);
+
+        foreach($cartData as $data){
+            $order = new order;
+
+            $order -> product_name = $data -> product_name;
+            //$order -> farmer_id = $cartData -> farmer_id;
+            $order -> user_id = $data -> user_id;
+            $order -> product_id = $data -> product_id;
+            $order -> order_ammount = '5';
+            $order -> product_price = $data -> product_price;
+            $order -> total_price = $data -> product_price * $order -> order_ammount;
+            $order -> product_image = $data -> product_image;
+
+            $order -> save();
+
+            $data->delete();
+
+            break;
+        }
+        echo "Order Placed Successfully";
+        return redirect('showUserPendingOrders');
+        
     }
 }

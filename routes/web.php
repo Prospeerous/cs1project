@@ -113,3 +113,11 @@ route::get('/addToCart/{id}', [HomeController::class, 'addToCart']);
 route::post('/addToCart/{id}', [HomeController::class, 'addToCart']);
 
 route::get('/buyerHome', [HomeController::class, 'buyerHome']);
+
+route::get('/showBuyerCart', [HomeController::class, 'showBuyerCart']);
+
+route::get('/deleteCart/{id}', [HomeController::class, 'deleteCart']);
+
+route::get('/proceedToCheckout', [HomeController::class, 'proceedToCheckout']);
+
+route::get('/showUserPendingOrders', [HomeController::class, 'showUserPendingOrders']);
