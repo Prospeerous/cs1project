@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('phone_no')->nullable();
             $table->string('location')->nullable();
-            $table->string('order_quantity')->default(5);
+            $table->string('order_ammount')->default(5);
 
             $table->timestamps();
         });

@@ -18,8 +18,10 @@ return new class extends Migration
             $table->foreignId('product_name')->nullable();
             $table->foreignId('customer_id')->constrained()->onDelete('cascade');
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->integer('quantity');
+            $table->integer('order_ammount');
+            $table->integer('product_image');
             $table->string('order_status')->default('pending'); // pending, processed, dispatched
+            $table->integer('total_price');
             $table->timestamps();
         });
     }
