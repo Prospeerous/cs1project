@@ -76,7 +76,7 @@
         <br>
         <form action= "{{ url('addToCart', $products->id) }}" method="post">
             @csrf
-            <input type= "number" name ="ammount" id= "ammount" placeholder="Enter Quantity" min="1" required>
+            <!--<input type= "number" name ="ammount" id= "ammount" placeholder="Enter Quantity" min="1" required>-->
             <br>
             <input type = "number" name = "order_ammount" id = "order_ammount" placeholder = "Enter Quantity" min = "1" required>   
 
