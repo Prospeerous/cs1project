@@ -9,6 +9,20 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReturnRequestController;
 
+use App\Livewire\Hello;
+use App\Livewire\Farmer\Home as FarmerHome;
+use App\Livewire\Farmer\Profile as FarmerProfile;
+use App\Livewire\Farmer\Wishlist as FarmerWishlist;
+use App\Livewire\Farmer\Reviews as FarmerReviews;
+use App\Livewire\Farmer\Orders as FarmerOrders;
+
+Route::get('/test', Hello::class);
+Route::get('/farmer/home', FarmerHome::class)->name('farmer.home');
+Route::get('/farmer/profile', FarmerProfile::class)->name('farmer.profile');
+Route::get('/farmer/wishlist', FarmerWishlist::class)->name('farmer.wishlist');
+Route::get('/farmer/reviews', FarmerReviews::class)->name('farmer.reviews');
+Route::get('/farmer/orders', FarmerOrders::class)->name('farmer.orders');
+
 //farmerhome page routes
 Route::get('/farmer/notifications', function () {
     return view('farmer.notifications');

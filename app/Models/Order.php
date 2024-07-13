@@ -9,6 +9,13 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        // 'merchant_id',
+        'product_id',
+        'quantity',
+        'total',
+        'status',
+];
     // Define the relationship with the Merchant model
     public function merchant()
     {
@@ -18,6 +25,6 @@ class Order extends Model
     // Define the relationship with the Product model
     public function product()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(\App\Models\Product::class, 'product_id');
     }
 }

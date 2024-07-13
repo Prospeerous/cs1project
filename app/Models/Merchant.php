@@ -9,6 +9,12 @@ class Merchant extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'f_name',
+        'l_name',
+        'email',
+    ];
+
     // Define the relationship with the Product model
     public function products()
     {

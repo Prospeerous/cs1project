@@ -31,7 +31,7 @@ class HomeController extends Controller
             return view('farmer.farmerHome');
         }
         if ($role == "buyer"){
-            return view('buyer.buyerHome');
+            return redirect('/farmer/home');
         }
     }
 
