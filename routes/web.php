@@ -17,6 +17,8 @@ use App\Livewire\Farmer\Reviews as FarmerReviews;
 use App\Livewire\Farmer\Orders as FarmerOrders;
 
 Route::get('/test', Hello::class);
+
+// These are buyer routes.. I realized the type of user I working with too late into the project
 Route::get('/farmer/home', FarmerHome::class)->name('farmer.home');
 Route::get('/farmer/profile', FarmerProfile::class)->name('farmer.profile');
 Route::get('/farmer/wishlist', FarmerWishlist::class)->name('farmer.wishlist');
