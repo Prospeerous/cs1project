@@ -14,7 +14,7 @@
 
         {{-- Right side actions --}}
         <x-slot:actions>
-            <x-mary-theme-toggle darkTheme="dracula" lightTheme="retro" />
+            <x-mary-theme-toggle darkTheme="forest" lightTheme="retro" />
             <x-mary-button label="Messages" icon="o-envelope" link="###" class="btn-ghost btn-sm" responsive />
             <x-mary-button label="Go Back" icon="o-arrow-uturn-left" link="/farmer/home" class="btn-ghost btn-sm" responsive />
             <x-mary-button label="Logout" icon="o-power" link="/logout" class="btn-ghost btn-sm" responsive />
