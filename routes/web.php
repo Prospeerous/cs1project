@@ -18,6 +18,18 @@ use App\Livewire\Farmer\Orders as FarmerOrders;
 
 Route::get('/test', Hello::class);
 
+Route::get('/logout', function () {
+    $guards = array_keys(config('auth.guards'));
+
+    foreach ($guards as $guard) {
+        if (auth()->guard($guard)->check()) {
+            auth()->guard($guard)->logout();
+        }
+    }
+
+    return redirect('/')->with('success', 'Logout successful');
+})->name('logout');
+
 // These are buyer routes.. I realized the type of user I working with too late into the project
 Route::get('/farmer/home', FarmerHome::class)->name('farmer.home');
 Route::get('/farmer/profile', FarmerProfile::class)->name('farmer.profile');
