@@ -28,10 +28,10 @@ class HomeController extends Controller
             return view('admin.adminHome');
         }
         if ($role == "farmer"){
-            return redirect('/farmer/home');
+            return view('farmer.farmerHome');
         }
         if ($role == "buyer"){
-            return view('dashboard');
+            return redirect('/buyer/home');
         }
     }
 
