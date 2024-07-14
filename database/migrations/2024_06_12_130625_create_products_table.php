@@ -13,8 +13,8 @@ return new class extends Migration
     {
       
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->string('farmer_id')->nullable();
+            $table->pid();
+           // $table->string('farmer_id')->nullable();
             $table->string('product_name')->nullable();
             $table->string('product_description')->nullable();
             $table->string('product_quantity')->nullable();
