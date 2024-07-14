@@ -25,7 +25,7 @@
         <x-slot:sidebar>
         <x-mary-menu activate-by-route>
             <x-mary-menu-item title="View Products" icon="o-eye-slash" link="/buyer/home" />
-            <x-mary-menu-item title="Order History" icon="o-check" link="/buyer/orders" />
+            <x-mary-menu-item title="Cart" icon="o-check" link="/buyer/orders" />
             <x-mary-menu-item title="Wishlist" icon="o-magnifying-glass-plus" link="/buyer/wishlist" />
             <x-mary-menu-item title="Ratings and Reviews" icon="o-adjustments-vertical" link="/buyer/reviews" />
             
@@ -58,7 +58,7 @@
         <x-mary-table :headers="$headers" :rows="$orders" striped >
             @scope('actions', $order)
                 <x-mary-button icon="o-check" wire:click="approve({{ $order->id }})" spinner class="btn-sm" tooltip="Approve" />
-                <x-mary-button icon="o-x" wire:click="delete({{ $order->id }})" spinner class="btn-sm" tooltip="Remove" />
+                <x-mary-button icon="o-x-mark" wire:click="delete({{ $order->id }})" spinner class="btn-sm" tooltip="Remove" />
             @endscope
         </x-mary-table>
         
