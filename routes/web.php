@@ -20,6 +20,16 @@ use App\Livewire\Farmer\Home as FarmerHome;
 
 Route::get('/test', Hello::class);
 
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+
 Route::get('/logout', function () {
     $guards = array_keys(config('auth.guards'));
 
