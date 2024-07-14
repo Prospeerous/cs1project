@@ -25,7 +25,7 @@
         <x-slot:sidebar>
         <x-mary-menu activate-by-route>
             <x-mary-menu-item title="View Products" icon="o-eye-slash" link="/buyer/home" />
-            <x-mary-menu-item title="Order History" icon="o-check" link="/buyer/orders" />
+            <x-mary-menu-item title="Cart" icon="o-check" link="/buyer/orders" />
             <x-mary-menu-item title="Wishlist" icon="o-magnifying-glass-plus" link="/buyer/wishlist" />
             <x-mary-menu-item title="Ratings and Reviews" icon="o-adjustments-vertical" link="/buyer/reviews" />
             

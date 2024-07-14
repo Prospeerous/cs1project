@@ -25,7 +25,7 @@
         <x-slot:sidebar>
         <x-mary-menu activate-by-route>
             <x-mary-menu-item title="View Products" icon="o-eye-slash" link="/buyer/home" />
-            <x-mary-menu-item title="Order History" icon="o-check" link="/buyer/orders" />
+            <x-mary-menu-item title="Cart" icon="o-check" link="/buyer/orders" />
             <x-mary-menu-item title="Wishlist" icon="o-magnifying-glass-plus" link="/buyer/wishlist" />
             <x-mary-menu-item title="Ratings and Reviews" icon="o-adjustments-vertical" link="/buyer/reviews" />
             
@@ -38,17 +38,30 @@
 
         <x-slot:content>
 
-        <x-mary-form wire:submit="updateProfile">
-            <x-mary-input wire:model="f_name" label="First Name" />
-            <x-mary-input wire:model="l_name" label="Last Name" />
-            <x-mary-input wire:model="email" label="Email" />
-            <x-mary-input wire:model="phone_no" label="Phone" />
-            <x-mary-input wire:model="location" label="Address" />
+        
+            @if(empty($this->avatarPath))
+                <x-mary-form wire:submit.prevent="uploadProfilePhoto">
+                    <x-mary-file wire:model="profile_photo_path" accept="image/png" crop-after-change>
+                        <img src="/empty_user.jpeg" class="h-40 rounded-lg" />
+                    </x-mary-file>
+                    <x-slot:actions>
+                        <x-mary-button label="Update Profile Photo" class="btn btn-success" type="submit" />
+                    </x-slot:actions>
+                </x-mary-form>
+            @else
+                <img src="{{ asset('storage/' . $this->avatarPath) }}" class="h-40 rounded-lg" />
+            @endif
+            <x-mary-form wire:submit="updateProfile">
+                <x-mary-input wire:model="f_name" label="First Name" />
+                <x-mary-input wire:model="l_name" label="Last Name" />
+                <x-mary-input wire:model="email" label="Email" />
+                <x-mary-input wire:model="phone_no" label="Phone" />
+                <x-mary-input wire:model="location" label="Address" />
 
-            <x-slot:actions>
-                <x-mary-button label="Update" type="submit" />
-            </x-slot:actions>
-        </x-mary-form>
+                <x-slot:actions>
+                    <x-mary-button label="Update" type="submit" />
+                </x-slot:actions>
+            </x-mary-form>
         </x-slot:content>
     </x-mary-main>
 </div>
