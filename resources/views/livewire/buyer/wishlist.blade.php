@@ -58,6 +58,7 @@
         <x-mary-header title="Items in Wishlist" with-anchor separator />
         <x-mary-table :headers="$headers" :rows="$wishes" striped >
             @scope('actions', $wish)
+                <x-mary-button icon="o-trash" wire:click="removeFromWishlist({{ $wish->id }})" spinner class="btn-sm" tooltip="Remove from Wishlist" />
                 <x-mary-button icon="o-check" wire:click="addToCart({{ $wish->id }})" spinner class="btn-sm" tooltip="Add to Cart" />
             @endscope
         </x-mary-table>

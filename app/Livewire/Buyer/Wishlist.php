@@ -71,6 +71,20 @@ class Wishlist extends Component
 
         $this->showDetailsModal = false;
     }
+
+    public function removeFromWishlist($id)
+    {
+        $wishlistItem = WishlistModel::find($id);
+
+        if (!$wishlistItem) {
+            $this->error('Product not found in wishlist.');
+            return;
+        }
+
+        $wishlistItem->delete();
+
+        $this->success('Product removed from wishlist successfully');
+    }
     
 
     public function calculateTotal()
