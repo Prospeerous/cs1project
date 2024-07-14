@@ -10,11 +10,13 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReturnRequestController;
 
 use App\Livewire\Hello;
+use App\Livewire\Buyer\Home as BuyerHome;
+use App\Livewire\Buyer\Profile as BuyerProfile;
+use App\Livewire\Buyer\Wishlist as BuyerWishlist;
+use App\Livewire\Buyer\Reviews as BuyerReviews;
+use App\Livewire\Buyer\Orders as BuyerOrders;
+
 use App\Livewire\Farmer\Home as FarmerHome;
-use App\Livewire\Farmer\Profile as FarmerProfile;
-use App\Livewire\Farmer\Wishlist as FarmerWishlist;
-use App\Livewire\Farmer\Reviews as FarmerReviews;
-use App\Livewire\Farmer\Orders as FarmerOrders;
 
 Route::get('/test', Hello::class);
 
@@ -30,12 +32,15 @@ Route::get('/logout', function () {
     return redirect('/')->with('success', 'Logout successful');
 })->name('logout');
 
-// These are buyer routes.. I realized the type of user I working with too late into the project
+// These are buyer routes
+Route::get('/buyer/home', BuyerHome::class)->name('buyer.home');
+Route::get('/buyer/profile', BuyerProfile::class)->name('buyer.profile');
+Route::get('/buyer/wishlist', BuyerWishlist::class)->name('buyer.wishlist');
+Route::get('/buyer/reviews', BuyerReviews::class)->name('buyer.reviews');
+Route::get('/buyer/orders', BuyerOrders::class)->name('buyer.orders');
+
+// Farmer Routes
 Route::get('/farmer/home', FarmerHome::class)->name('farmer.home');
-Route::get('/farmer/profile', FarmerProfile::class)->name('farmer.profile');
-Route::get('/farmer/wishlist', FarmerWishlist::class)->name('farmer.wishlist');
-Route::get('/farmer/reviews', FarmerReviews::class)->name('farmer.reviews');
-Route::get('/farmer/orders', FarmerOrders::class)->name('farmer.orders');
 
 //farmerhome page routes
 Route::get('/farmer/notifications', function () {

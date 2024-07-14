@@ -23,20 +23,22 @@
 
     <x-mary-main>
         <x-slot:sidebar>
-            <x-mary-menu activate-by-route>
-                <x-mary-menu-item title="View Products" icon="o-eye-slash" link="/buyer/home" />
-                <x-mary-menu-item title="Order History" icon="o-check" link="/buyer/orders" />
-                <x-mary-menu-item title="Wishlist" icon="o-magnifying-glass-plus" link="/buyer/wishlist" />
-                <x-mary-menu-item title="Ratings and Reviews" icon="o-adjustments-vertical" link="/buyer/reviews" />
-                
-                <x-mary-menu-sub title="Settings" icon="o-cog-6-tooth">
-                    <x-mary-menu-item title="Wifi" icon="o-wifi" link="####" />
-                    <x-mary-menu-item title="Archives" icon="o-archive-box" link="####" />
-                </x-mary-menu-sub>
-            </x-mary-menu>
-        </x-slot:sidebar>
-        <x-slot:content>
+        <x-mary-menu activate-by-route>
+            <x-mary-menu-item title="View Products" icon="o-eye-slash" link="/buyer/home" />
+            <x-mary-menu-item title="Order History" icon="o-check" link="/buyer/orders" />
+            <x-mary-menu-item title="Wishlist" icon="o-magnifying-glass-plus" link="/buyer/wishlist" />
+            <x-mary-menu-item title="Ratings and Reviews" icon="o-adjustments-vertical" link="/buyer/reviews" />
             
+            <x-mary-menu-sub title="Settings" icon="o-cog-6-tooth">
+                <x-mary-menu-item title="Wifi" icon="o-wifi" link="####" />
+                <x-mary-menu-item title="Archives" icon="o-archive-box" link="####" />
+            </x-mary-menu-sub>
+        </x-mary-menu>
+        </x-slot:sidebar>
+
+        <x-slot:content>
+
+        reviews
         </x-slot:content>
     </x-mary-main>
 </div>
