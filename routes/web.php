@@ -70,7 +70,7 @@ Route::resource('merchants', MerchantController::class);
 
 
 // Product Routes
-Route::resource('products', ProductController::class);
+//Route::resource('products', ProductController::class);
 
 // Order Routes
 //Route::resource('orders', OrderController::class);

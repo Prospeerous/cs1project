@@ -69,7 +69,7 @@ class ProductController extends Controller
         return view('products.addProduct');
     }
 
-    public function store(Request $request)
+   /*public function store(Request $request)
     {
         $request->validate([
             'product_name' => 'required|string|max:255',
@@ -81,7 +81,7 @@ class ProductController extends Controller
         ]);
 
         $product = new Product();
-        $product->id = auth()->id();
+        $product->pid = auth()->id();
         $product->product_name = $request->product_name;
         $product->product_description = $request->product_description;
         $product->product_quantity = $request->product_quantity;
@@ -95,5 +95,19 @@ class ProductController extends Controller
         $product->save();
 
         return redirect()->route('products.addProduct')->with('success', 'Product added successfully!');
+    } */ 
+
+    public function store(Request $request)
+    {
+$data = new Product;
+$data->product_name = $request->product_name;
+$data->product_description = $request->product_description;
+$data->product_quantity = $request->product_quantity;
+$data->product_price = $request->product_price;
+$data->product_category = $request->product_category;
+$data->product_image = $request->product_image;
+$data->save();
+return redirect()->back()->with('message', 'Product Added Successfully');
+
     }
 }
