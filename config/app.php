@@ -123,4 +123,13 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*'providers' => [
+        // Other Service Providers
+        Illuminate\View\BladeServiceProvider::class,
+
+
+        App\Providers\MpesaServiceProvider::class,
+    ],*/
+
+
 ];
