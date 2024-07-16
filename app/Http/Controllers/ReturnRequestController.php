@@ -19,6 +19,8 @@ class ReturnRequestController extends Controller
         return view('return_requests.show', compact('returnRequest'));
     }
 
+
+
     public function approveReturn($id)
     {
         $returnRequest = ReturnRequest::findOrFail($id);

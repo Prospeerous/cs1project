@@ -1,23 +1,67 @@
-{{-- @extends('layouts.app') --}}
-
-{{-- @section('content') --}}
-    <h1>Orders</h1>
-    <ul class="list-group mt-3">
-        @foreach($orders as $order)
-        <div>
-            <ul>
-                <li class="list-group-item">
-                    {{-- <a href="{{ route('orders.show', $order->id) }}">Order #{{ $order->id }}</a> --}}
-                    <p>Product: {{ $order->product->name }}</p>
-                    <p>Quantity: {{ $order->quantity }}</p>
-                    <p>Price: {{ $order->product->price }}</p>
-                    <p>Category: {{ $order->product->category }}</p>
-                    {{ $order->product->image }}
-                    {{-- <p>Image: <img src="{{ asset('storage/products/' . $order->product->image) }}" alt="{{ $order->product->name }}" style="width: 100px; height: 100px;"></p> --}}
-                    <p>Status: {{ $order->status }}</p>
-                </li>
-            </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        .table {
+            background-color: white;
+            color: #333;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+            text-align: center;
+        }
+        .table img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+        .thead-light {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Orders</h1>
+        <div class="mb-4">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Product</th>
+                        <th>Product name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        
+                        <th>Image</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($orders as $order) : ?>
+                        <tr>
+                            <td><?= $order->product_id; ?></td>
+                            <td><?= $order->name ?></td>
+                            <td><?= $order->quantity; ?></td>
+                            <td><?= $order->total / $order->quantity; ?></td>
+                            <td><?= $order->total; ?></td>
+                        <!--    <td><?= $order->buyer_id; ?></td> -->
+                            <td>
+                                <!-- Uncomment this line to display the image -->
+                                <img src="<?= 'storage/products/' . $order->product->image; ?>" alt="<?= $order->product->name; ?>" style="width: 100px; height: 100px;"> 
+                                <?= $order->product->image; ?>
+                            </td>
+                            <td><?= $order->status; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
-        @endforeach
-    </ul>
-{{-- @endsection --}}
+    </div>
+</body>
+</html>

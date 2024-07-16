@@ -22,6 +22,7 @@ class Home extends Component
     public $product_id, $product_name, $product_description, $product_quantity, $product_price, $product_category, $product_image;
 
     public $product;
+    public $name;
     public $reviews=[];
     public $user_id, $review, $rating;
     public $review_content;
@@ -119,9 +120,10 @@ class Home extends Component
 
 
         $order = new Order();
-        // $merchant_id = auth()->user()->id;
-        // $order->merchant_id = $merchant_id;
+        $merchant_id = auth()->user()->id;
+        $order->merchant_id = $merchant_id;
         $order->product_id = $this->product_id;
+        $order->name= $this->name;
         $order->quantity = $this->quantity;
         $order->total = $this->total;
         $order->save();
@@ -133,7 +135,7 @@ class Home extends Component
     public function viewProduct($id)
     {
         $this->product = Product::find($id);
-        $this->product_name = $this->product->product_name;
+        $this->name = $this->product->name;
         $this->product_description = $this->product->product_description;
         $this->product_quantity = $this->product->product_quantity;
         $this->product_price = $this->product->product_price;
