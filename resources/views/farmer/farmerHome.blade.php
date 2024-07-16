@@ -251,8 +251,8 @@
 					        <div id="submenu-1" class="collapse submenu submenu-1" data-bs-parent="#menu-accordion">
 						        <ul class="submenu-list list-unstyled">
 							        <li class="submenu-item"><a class="submenu-link" href="{{url('/orders')}}">View Orders</a></li>
-							        <li class="submenu-item"><a class="submenu-link" href="orders.html">Process orders</a></li>
-									<li class="submenu-item"><a class="submenu-link" href="orders.html">Return Requests</a></li>
+							        <li class="submenu-item"><a class="submenu-link" href="{{url('/orders')}}">Process orders</a></li>
+	
 							        <li class="submenu-item"><a class="submenu-link" href="{{ url('/farmer/notifications') }}">Notifications</a></li>
 						        </ul>
 					        </div>
@@ -396,7 +396,7 @@
 							    <h4 class="stats-type mb-1">Products</h4>
 							    <div class="stats-figure">23</div>
 							    <div class="stats-meta">
-								    Open</div>
+								    Available</div>
 						    </div><!--//app-card-body-->
 						    <a class="app-card-link-mask" href="#"></a>
 					    </div><!--//app-card-->
