@@ -14,7 +14,7 @@ class OrderController extends Controller
     {
        // return view('orders.index', ['orders' => Merchant::with('products', 'orders')->find(auth()->id())]);
       
-         return view('orders.index', ['orders' => Order::where('merchant_id', auth()->id())->get()]);
+         return view('orders.index', ['orders' => Order::where('user_id', auth()->id())->get()]);
         // return auth()->id();
 
     }
