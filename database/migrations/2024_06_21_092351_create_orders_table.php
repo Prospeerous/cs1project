@@ -17,7 +17,7 @@ return new class extends Migration
             // $table->foreignId('buyer_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('product_id')->constrained();
-            $table->string('name')->constrained();
+            // $table->string('name')->constrained();
             $table->integer('quantity');
             $table->decimal('total', 8, 2);
             $table->string('status')->default('pending');

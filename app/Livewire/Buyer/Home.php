@@ -124,6 +124,8 @@ class Home extends Component
         // $order->merchant_id = $merchant_id;
         $order->product_id = $this->product_id;
         // $order->name= $this->name;
+        $this->user_id = auth()->user()->id;
+        $order->user_id = $this->user_id;
         $order->quantity = $this->quantity;
         $order->total = $this->total;
         $order->save();
