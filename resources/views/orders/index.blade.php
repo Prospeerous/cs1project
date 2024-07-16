@@ -33,7 +33,7 @@
                 <thead class="thead-light">
                     <tr>
                         <th>Product</th>
-                        <th>Product name</th>
+                        
                         <th>Quantity</th>
                         <th>Price</th>
                         <th>Total</th>
@@ -46,7 +46,7 @@
                     <?php foreach ($orders as $order) : ?>
                         <tr>
                             <td><?= $order->product_id; ?></td>
-                            <td><?= $order->name ?></td>
+                           
                             <td><?= $order->quantity; ?></td>
                             <td><?= $order->total / $order->quantity; ?></td>
                             <td><?= $order->total; ?></td>
