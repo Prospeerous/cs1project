@@ -44,7 +44,7 @@
         try {
             const response = await axios.post('/query-stk-push');
             const data = response.data;
-            console.log(data);
+            console.log( "Data from the response", data);
 
             let resultHtml = '';
             let shouldStopPolling = false;

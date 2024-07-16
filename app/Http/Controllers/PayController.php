@@ -134,7 +134,7 @@ public function queryStkPush(Request $request)
                 $message = "Transaction cancelled by user";
                 $responseData =$response->json();
                 //Cache::put('responseData', $responseData, now()->addMinutes(30));
-                console.log($responseData);
+                
                 break;
 
             case '1':
