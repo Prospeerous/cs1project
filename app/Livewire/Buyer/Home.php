@@ -135,7 +135,7 @@ class Home extends Component
     public function viewProduct($id)
     {
         $this->product = Product::find($id);
-        $this->product_name = $this->product->name;
+        $this->product_name = $this->product->product_name;
         $this->product_description = $this->product->product_description;
         $this->product_quantity = $this->product->product_quantity;
         $this->product_price = $this->product->product_price;
