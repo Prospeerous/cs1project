@@ -16,6 +16,10 @@ use App\Livewire\Buyer\Profile as BuyerProfile;
 use App\Livewire\Buyer\Wishlist as BuyerWishlist;
 use App\Livewire\Buyer\Reviews as BuyerReviews;
 use App\Livewire\Buyer\Orders as BuyerOrders;
+use App\Livewire\Buyer\Legume as BuyerLegume;
+use App\Livewire\Buyer\Cereal as BuyerCereal;
+use App\Livewire\Buyer\Fruit as BuyerFruit;
+use App\Livewire\Buyer\Vegetable as BuyerVegetable;
 
 use App\Livewire\Farmer\Home as FarmerHome;
 
@@ -47,6 +51,10 @@ Route::get('/logout', function () {
 
 // These are buyer routes
 Route::get('/buyer/home', BuyerHome::class)->name('buyer.home');
+Route::get('/buyer/legume', BuyerLegume::class)->name('buyer.legume');
+Route::get('/buyer/cereal', BuyerCereal::class)->name('buyer.cereal');
+Route::get('/buyer/fruit', BuyerFruit::class)->name('buyer.fruit');
+Route::get('/buyer/vegetable', BuyerVegetable::class)->name('buyer.vegetable');
 Route::get('/buyer/profile', BuyerProfile::class)->name('buyer.profile');
 Route::get('/buyer/wishlist', BuyerWishlist::class)->name('buyer.wishlist');
 Route::get('/buyer/reviews', BuyerReviews::class)->name('buyer.reviews');
@@ -169,3 +177,16 @@ route::get('/proceedToCheckout', [HomeController::class, 'proceedToCheckout']);
 route::get('/showUserPendingOrders', [HomeController::class, 'showUserPendingOrders']);
 
 Route::get('/pay' , [HomeController::class, 'stk']);
+
+Route::get('/viewLegumes', [HomeController::class, 'viewLegumes']);
+
+Route::get('/viewCereals', [HomeController::class, 'viewCereals']);
+
+Route::get('/viewVegetables', [HomeController::class, 'viewVegetables']);
+
+Route::get('/viewFruits', [HomeController::class, 'viewFruits']);
+
+Route::get('/viewTubers', [HomeController::class, 'viewTubers']);
+Route::get('/payment', [PayController::class, 'showpayment'])->name('buyer.payment');
+Route::get('/perform-stk-push', [PayController::class, 'performStkPush'])->name('perform-stk-push');
+Route::post('/query-stk-push', [PayController::class, 'queryStkPush'])->name('query.stk.push');

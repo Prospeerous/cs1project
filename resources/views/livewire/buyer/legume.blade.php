@@ -25,16 +25,10 @@
         <x-slot:sidebar>
             <x-mary-menu activate-by-route>
                 <x-mary-menu-item title="View Products" icon="o-eye-slash" link="/buyer/home" />
-                <a href ="{{ url('viewLegumes') }}" > Legumes</a>
-                <br>
-                <a href ="{{ url('viewFruits') }}" >Fruits</a>
-                <br>
-                <a href ="{{ url('viewVegetables') }}" >Vegetables</a>
-                <br>
-                <a href ="{{ url('viewTubers') }}" >Tubers</a>
-                <br>
-                <a href = "{{ url('viewCereals') }}"> Cereals</a>
-                <br>
+                <x-mary-menu-item title="Legumes" icon="o-check" link="/buyer/legumes" />
+                <x-mary-menu-item title="Cereals" icon="o-check" link="/buyer/cereals" />
+                <x-mary-menu-item title="Fruits" icon="o-check" link="/buyer/fruits" />
+                <x-mary-menu-item title="Vegetables" icon="o-check" link="/buyer/vegetables" />
                 <x-mary-menu-item title="Cart" icon="o-check" link="/buyer/orders" />
                 <x-mary-menu-item title="Wishlist" icon="o-magnifying-glass-plus" link="/buyer/wishlist" />
                 <x-mary-menu-item title="Ratings and Reviews" icon="o-adjustments-vertical" link="/buyer/reviews" />
@@ -52,12 +46,15 @@
                     <x-mary-input placeholder="Search..." wire:model.live.debounce="search" clearable icon="o-magnifying-glass" />
                 </x-slot:middle>
             </x-mary-header>
+
+            
             <div class="flex flex-wrap -mx-2">
-                @foreach ($products as $product)
+            @foreach($legumes as $legume)
+               
                     <div class="w-1/4 px-2 mb-4">
-                        <x-mary-card title="{{ $product->product_name }}" subtitle="{{ $product->product_description }}" class="mx-auto">
+                        <x-mary-card title= "{{ $legume->product_name }}" subtitle="{{ $legume->product_description }}" class="mx-auto">
                             <x-slot:figure>
-                                <img src="{{ asset('product_images/' . $product->product_image) }}" alt="{{ $product->product_name }}" class="w-full mx-auto" />
+                                <img src="{{ asset('product_images/' . $legume->product_image) }}" alt="{{ $legume->product_name }}" class="w-full mx-auto" />
                             </x-slot:figure>
                             <x-slot:actions>
                                 <div class="flex">
@@ -69,9 +66,11 @@
                             </x-slot:actions>
                         </x-mary-card>
                     </div>
-                @endforeach
-            </div>
 
+            @endforeach
+               
+            </div>
+    
             <x-mary-modal wire:model="showDetailsModal">
                 <x-mary-form label="Product Details">
                     <img src="{{ asset('product_images/' . $product_image) }}" alt="{{ $product_name }}" class="w-1/2 mx-auto" />
@@ -130,3 +129,4 @@
         </x-slot:content>
     </x-mary-main>
 </div>
+

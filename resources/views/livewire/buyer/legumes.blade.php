@@ -25,16 +25,10 @@
         <x-slot:sidebar>
             <x-mary-menu activate-by-route>
                 <x-mary-menu-item title="View Products" icon="o-eye-slash" link="/buyer/home" />
-                <a href ="{{ url('viewLegumes') }}" > Legumes</a>
-                <br>
-                <a href ="{{ url('viewFruits') }}" >Fruits</a>
-                <br>
-                <a href ="{{ url('viewVegetables') }}" >Vegetables</a>
-                <br>
-                <a href ="{{ url('viewTubers') }}" >Tubers</a>
-                <br>
-                <a href = "{{ url('viewCereals') }}"> Cereals</a>
-                <br>
+                <x-mary-menu-item title="Legumes" icon="o-check" link="/buyer/legumes" />
+                <x-mary-menu-item title="Cereals" icon="o-check" link="/buyer/cereals" />
+                <x-mary-menu-item title="Fruits" icon="o-check" link="/buyer/fruits" />
+                <x-mary-menu-item title="Vegetables" icon="o-check" link="/buyer/vegetables" />
                 <x-mary-menu-item title="Cart" icon="o-check" link="/buyer/orders" />
                 <x-mary-menu-item title="Wishlist" icon="o-magnifying-glass-plus" link="/buyer/wishlist" />
                 <x-mary-menu-item title="Ratings and Reviews" icon="o-adjustments-vertical" link="/buyer/reviews" />

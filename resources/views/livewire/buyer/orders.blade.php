@@ -57,8 +57,7 @@
         <x-mary-header title="Order in Cart" with-anchor separator />
         <x-mary-table :headers="$headers" :rows="$orders" striped >
             @scope('actions', $order)
-                <x-mary-button icon="o-check" wire:click="approve({{ $order->id }})" spinner class="btn-sm" tooltip="Approve" />
-                <x-mary-button icon="o-x-mark" wire:click="delete({{ $order->id }})" spinner class="btn-sm" tooltip="Remove" />
+                <a href = "{{ url('perform-stk-push') }}" >Pay</a>
             @endscope
         </x-mary-table>
         

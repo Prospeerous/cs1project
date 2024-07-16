@@ -242,35 +242,39 @@ class HomeController extends Controller
         return redirect('showUserPendingOrders');
         
     }
-    /*public function stk(){
-        
-        $mpesaProvider = new MpesaServiceProvider(app());
-        $mpesaProvider->STKPushSimulation();
-    
-        $BusinessShortCode = "174379";
-        $LipaNaMpesaPasskey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
-        $TransactionType = "CustomerPayBillOnline";
-        $Amount = "1";
-        $PartyA = "254794748318";
-        $PartyB = "174379";
-        $PhoneNumber = "254794748318";
-        $CallBackURL = "https://mydomain.com/path";
-        $AccountReference = "Test";
-        $TransactionDesc = "Test";
-        $Remarks = "Test";
-    
-        $stkPushSimulation = $mpesa->STKPushSimulation(
-        $BusinessShortCode, 
-        $LipaNaMpesaPasskey, 
-        $TransactionType, 
-        $Amount, 
-        $PartyA, 
-        $PartyB, 
-        $PhoneNumber, 
-        $CallBackURL, 
-        $AccountReference, 
-        $TransactionDesc, 
-        $Remarks);
-        dd($stkPushSimulation);
-    }*/
+    public function showLegumes()
+    {
+        // Fetch only legumes
+        $legumes = Product::where('product_category', 'legume')->get();
+
+        // Pass legumes to the view
+        return view('buyer.legume', compact('legumes'));
+    }
+
+    public function viewLegumes()
+    {
+        $legumes = product::where('product_category', 'legumes')->get();
+        return view('buyer.buyerViewLegume', compact('legumes'));
+    }
+    public function viewCereals(){
+        $cereals = product::where('product_category', 'cereals')->get();
+        return view('buyer.buyerViewCereal', compact('cereals'));
+    }
+    public function viewVegetables(){
+        $vegetables = product::where('product_category', 'vegetables')->get();
+        return view('buyer.buyerViewVegetable', compact('vegetables'));
+    }
+    public function viewFruits(){
+        $fruits = product::where('product_category', 'fruits')->get();
+        return view('buyer.buyerViewFruit', compact('fruits'));
+    }
+    public function viewTubers(){
+        $tubers = product::where('product_category', 'tubers')->get();
+        return view('buyer.buyerViewTuber', compact('tubers'));
+    }
+
+    public function viewSpecificLegume($id){
+        $slegumes = product::where('id', $id)->get();
+        return view('buyer.buyerViewLegume', compact('slegumes'));
+    }
 }
