@@ -8,6 +8,7 @@ use App\Http\Controllers\MerchantController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReturnRequestController;
+use App\Providers\MpesaServiceProvider;
 
 use App\Livewire\Hello;
 use App\Livewire\Buyer\Home as BuyerHome;
@@ -17,6 +18,8 @@ use App\Livewire\Buyer\Reviews as BuyerReviews;
 use App\Livewire\Buyer\Orders as BuyerOrders;
 
 use App\Livewire\Farmer\Home as FarmerHome;
+
+use App\Http\Controllers\PayController;
 
 Route::get('/test', Hello::class);
 
@@ -164,3 +167,5 @@ route::get('/deleteCart/{id}', [HomeController::class, 'deleteCart']);
 route::get('/proceedToCheckout', [HomeController::class, 'proceedToCheckout']);
 
 route::get('/showUserPendingOrders', [HomeController::class, 'showUserPendingOrders']);
+
+Route::get('/pay' , [HomeController::class, 'stk']);

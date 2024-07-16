@@ -14,6 +14,8 @@ use App\Models\cart;
 
 use App\Models\order;
 
+use App\Providers\MpesaServiceProvider;
+
 class HomeController extends Controller
 {
     public function index()
@@ -240,4 +242,35 @@ class HomeController extends Controller
         return redirect('showUserPendingOrders');
         
     }
+    /*public function stk(){
+        
+        $mpesaProvider = new MpesaServiceProvider(app());
+        $mpesaProvider->STKPushSimulation();
+    
+        $BusinessShortCode = "174379";
+        $LipaNaMpesaPasskey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
+        $TransactionType = "CustomerPayBillOnline";
+        $Amount = "1";
+        $PartyA = "254794748318";
+        $PartyB = "174379";
+        $PhoneNumber = "254794748318";
+        $CallBackURL = "https://mydomain.com/path";
+        $AccountReference = "Test";
+        $TransactionDesc = "Test";
+        $Remarks = "Test";
+    
+        $stkPushSimulation = $mpesa->STKPushSimulation(
+        $BusinessShortCode, 
+        $LipaNaMpesaPasskey, 
+        $TransactionType, 
+        $Amount, 
+        $PartyA, 
+        $PartyB, 
+        $PhoneNumber, 
+        $CallBackURL, 
+        $AccountReference, 
+        $TransactionDesc, 
+        $Remarks);
+        dd($stkPushSimulation);
+    }*/
 }
